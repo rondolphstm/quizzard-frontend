@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import "./styles/HeroStyles.css"
 
 export default function Form({ handleClose, setStateFromChild }) {
   const [formSubmitted, setFormSubmitted] = useState(false)
@@ -55,7 +56,7 @@ export default function Form({ handleClose, setStateFromChild }) {
   }
 
   return (
-    <div className='App'>
+    <div className='hero-container'>
       <h3>
       </h3>
       <form onSubmit={formSubmit}>
@@ -84,7 +85,7 @@ export default function Form({ handleClose, setStateFromChild }) {
         {errorMessage && (
           <h1>
             There was an error:
-            <br />
+            <br/>
             {errorMessage}
           </h1>
         )}

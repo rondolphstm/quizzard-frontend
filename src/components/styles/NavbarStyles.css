@@ -1,0 +1,8 @@
+.navbar-container{
+    display: "flex";
+    align-content: "space-around";
+    flex-direction: "row";
+    justify-content: "space-around"; 
+    text-align: "center";
+    background-color: yellow;
+}
