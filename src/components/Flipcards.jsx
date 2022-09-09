@@ -1,26 +1,39 @@
-import React, {useEffect, useState} from "react"
-// import Hero from "../components/Hero"
-import "./styles/Flipcard.css"
+import { useState } from "react"; 
+import cn from "classnames";
 
-export default function Flipcards() {
-const [card ,setCard] =useState()
-useEffect(()=>{
-fetch("https://quizzard-api-backend.web.app/packs")
-.then((results)=> results.json())
-.then((data)=> setCard(data))
-.catch(console.error)
-},[setCard])
-  return(
-    <>
-    <div className="flip-card">
-      <div className="flip-card-inner">
-        <div className="flip-card-front">
+function FlipCard({ card }) {
+  const [showBack, setShowBack] = useState(false); 
+
+  function handleClick() { 
+    if (card.variant === "click") { 
+      setShowBack(!showBack); 
+    } 
+  } 
+
+  return (
+    <div
+      className="flip-card-outer"
+      onClick={handleClick} 
+    >
+      <div
+        className={cn("flip-card-inner", {
+          showBack, 
+          "hover-trigger": card.variant === "hover"
+        })}
+      >
+        <div className="card front">
+          <div className="card-body d-flex justify-content-center align-items-center">
+            <p className="card-text fs-1 fw-bold">{card.front}</p>
+          </div>
         </div>
-        <div className="flip-card-back">
-          {/* <Hero /> */}
+        <div className="card back">
+          <div className="card-body d-flex justify-content-center align-items-center">
+            <p className="card-text fs-1 fw-bold">{card.back}</p>
+          </div>
         </div>
       </div>
     </div>
-    </>
-  )
+  );
 }
+
+export default FlipCard;

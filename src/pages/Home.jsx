@@ -1,9 +1,10 @@
+import Flipcards from "../components/Flipcards";
+
 export default function Home(){
     return(
         <>
         <div>
-
-        <p>Hello</p>
+            <Flipcards/>
         </div>
         </>
     )

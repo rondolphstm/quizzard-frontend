@@ -6,12 +6,23 @@
     box-sizing: inherit;
 }
 
+.App{
+  font-family: sans-serif;
+  text-align: center;
+
+}
+
 .flip-card {
+  display: flex;
     background-color: transparent;
-    width: 300px;
-    height: 200px;
+    width: 400px;
+    height: 600px;
     border: 1px solid #f1f1f1;
     perspective: 1000px; /* Remove this if you don't want the 3D effect */
+    position: fixed;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
   }
   
   /* This container is needed to position the front and back side */
@@ -50,3 +61,4 @@
     color: white;
     transform: rotateY(180deg);
   }
+
