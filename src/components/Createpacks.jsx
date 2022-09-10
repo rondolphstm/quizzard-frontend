@@ -1,90 +1,66 @@
-import { useState, useEffect } from "react"
-import "./styles/HeroStyles.css"
+import { useState} from "react"
 
-export default function Form({ handleClose, setStateFromChild }) {
-  const [formSubmitted, setFormSubmitted] = useState(false)
-  const [validForm, setValidForm] = useState(false)
-  const [errorMessage, setErrorMessage] = useState("")
-  const [form, setForm] = useState({})
+export default function Form() {
+  const [formSubmitted] = useState(false)
+  const [title, setTitle] = useState('')
+  const [errorMessage ] = useState("")
+  const [form] = useState({})
+  const [description, setDescription] = useState('')
 
-  console.log("props here")
 
-  useEffect(() => {
-    if (form?.title?.length > 2 && form?.description?.length > 5) {
-      setValidForm(true)
-    } else {
-      setValidForm(false)
-    }
-  }, [form])
-
-  async function formSubmit(e) {
-    e.preventDefault() // stops the page refresh
-
-    if (!validForm) {
-      setErrorMessage("Can't create pack")
-      return
-    }
-
-    try {
-      const results = await fetch({
+function formSubmit(e) {
+    // e.preventDefault() // stops the page refresh
+            
+     
+      //  fetch("http://localhost:4440/createpack",{
+       fetch("https://quizzard-web-app.web.app/createpack",{
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(form),
+        body: JSON.stringify({title:title, description:description}),
       })
-      console.log(results)
-      const data = await results.json()
-      console.log(data)
-
-      setFormSubmitted(true)
-      setErrorMessage("")
-      setValidForm(true)
-
-      handleClose()
-      setStateFromChild(form)
-    } catch (error) {
-      console.error(error)
-      setErrorMessage(
-        "There was an error creating Flashpack" + error.toString()
-      )
-    }
+      .then(results=>results.json())
+      .then(data => {
+        console.log(data)
+      })
+      .catch(err =>{
+        console.error(err)
+      })
+    
   }
+    
 
   //   console.log('this is form =>', form)
 
-  const updateForm = (event) => {
-    setForm({ ...form, [event.target.name]: event.target.value })
-  }
+  // const updateForm = (event) => {
+  //   setForm({ ...form, [event.target.name]: event.target.value })
+  // }
 
   return (
-    <div className="hero-container">
-      <h3></h3>
+    <div>
       <form onSubmit={formSubmit}>
         <label>Vocab/Question</label>
         <br />
         <input
           type="text"
           name="title"
-          value={form.title}
-          onChange={updateForm}
+          value={title}
+          onChange={(e)=>setTitle(e.target.value)}
         />
         <h3>{form.title}</h3>
 
         <label>Definition/Answer</label>
         <br />
         <textarea
-          value={form.description}
-          name="description"
-          onChange={updateForm}
+              value={description}
+              name='description'
+              // required
+              onChange={(e)=>setDescription(e.target.value)}
         />
 
         <h3>{form.description}</h3>
 
-        <button onClick={() => setStateFromChild("hello father")}>
-          {" "}
-          send stuff back to parent
-        </button>
         {!formSubmitted && <button>Submit Form</button>}
         {errorMessage && (
           <h1>
@@ -95,5 +71,5 @@ export default function Form({ handleClose, setStateFromChild }) {
         )}
       </form>
     </div>
-  )
+  );
 }

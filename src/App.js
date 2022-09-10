@@ -1,13 +1,11 @@
 // import {useEffect, useState} from "React"
-import Login from "./pages/Login.jsx"
-import Signup from "./pages/Signup.jsx"
 import Home from "./pages/Home.jsx"
 import Flashpack from './pages/Flashpack';
 import './App.css';
 import Navbar from './components/Navbar';
 import { BrowserRouter,Route , Routes} from 'react-router-dom';
-import Footer from "./components/Footer.jsx";
 import React from "react";
+import Footer from "./components/Footer.jsx";
 
  export default function App() {
   // const [token, setToken] = useState();
@@ -23,12 +21,10 @@ import React from "react";
    <Navbar />
   <Routes>
   <Route path ="Home" element={<Home/>}/>
-  <Route path ="Signup" element={<Signup/>}/>
-  <Route path ="Login" element={<Login/>}/>
   <Route path ="Flashpack" element={<Flashpack/>}/>
   </Routes>
-   <Footer/>
    </BrowserRouter>
+   <Footer/>
    {/* {!token ?
             isUser 
               ? <Login setIsUser={setIsUser} setToken={setToken} />
