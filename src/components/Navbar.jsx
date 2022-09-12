@@ -1,13 +1,12 @@
-import Nav from 'react-bootstrap/Nav'
+import { Nav } from 'react-bootstrap'
 // import logo from '../logo/quizzard.png'
-import "./styles/quizzard.css";
+import "./styles/navbar.css";
 
 export default function Navbar() {
   return (
-    <Nav variant="tabs" defaultActiveKey="/" className='navbar fixed-center'>
+    <Nav variant="tabs" defaultActiveKey="/" className='App'>
       <Nav.Item>
-        <Nav.Link href="home">Quizzard
-        {/* <img src={logo} alt="quizzard logo" className="App"/> */}
+        <Nav.Link href="/">Quizzard
         </Nav.Link>
       </Nav.Item>
       <Nav.Item>
@@ -22,3 +21,5 @@ export default function Navbar() {
     </Nav>
   ); 
 }
+
+

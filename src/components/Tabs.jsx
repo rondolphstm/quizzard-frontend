@@ -6,7 +6,7 @@ import Tab from 'react-bootstrap/Tab';
 // import Form   from './Createpacks';
 // import Info from './Info'
 import { FlashCards, FormCards} from './Cards'
-
+import './styles/card.css'
 
 
 
@@ -15,7 +15,7 @@ export default function LeftTabs() {
     <Tab.Container id="left-tabs-example" defaultActiveKey="first">
       <Row>
         <Col sm={3}>
-          <Nav variant="pills" className="flex-column">
+          <Nav variant="pills" className="card">
             <Nav.Item>
               <Nav.Link eventKey="first">Create Flashcards</Nav.Link>
             </Nav.Item>

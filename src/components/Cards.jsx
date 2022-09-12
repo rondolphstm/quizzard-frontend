@@ -1,16 +1,17 @@
 import Info from './Info';
 import Card from 'react-bootstrap/Card';
 import Form from './Createpacks';
+import "./styles/card.css"
 
 export function FlashCards() {
   return (
     <Card>
       <Card.Header>Flashcards</Card.Header>
-      <Card.Body>
+      <Card.Body className="card" >
         <blockquote className="blockquote mb-0">
-          <p>
+          <div>
             <Info/>
-          </p>
+          </div>
         </blockquote>
       </Card.Body>
     </Card>
@@ -19,13 +20,13 @@ export function FlashCards() {
 
 export function FormCards() {
   return (
-    <Card>
+    <Card >
       <Card.Header>Flashcards</Card.Header>
-      <Card.Body>
+      <Card.Body className="card">
         <blockquote className="blockquote mb-0">
-          <p>
+          <div>
             <Form/>
-          </p>
+          </div>
         </blockquote>
       </Card.Body>
     </Card>

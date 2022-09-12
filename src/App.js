@@ -2,10 +2,9 @@
 import Home from "./pages/Home.jsx"
 import Flashpack from './pages/Flashpack';
 import './App.css';
-import Navbar from './components/Navbar';
 import { BrowserRouter,Route , Routes} from 'react-router-dom';
 import React from "react";
-import Footer from "./components/Footer.jsx";
+// import bubbles from "../bubbles/bubbles.jsx"
 
  export default function App() {
   // const [token, setToken] = useState();
@@ -17,20 +16,18 @@ import Footer from "./components/Footer.jsx";
   // },[setToken]);
   return (
    <>
-   <BrowserRouter>
-   <Navbar />
-  <Routes>
-  <Route path ="Home" element={<Home/>}/>
-  <Route path ="Flashpack" element={<Flashpack/>}/>
-  </Routes>
-   </BrowserRouter>
-   <Footer/>
+   {/* <BrowserRouter> */}
+   <bubbles />
+    <Routes>
+      <Route index element={<Home/>}/>
+      <Route path ="/flashpack" element={<Flashpack/>}/>
+    </Routes>
+   {/* </BrowserRouter> */}
    {/* {!token ?
             isUser 
               ? <Login setIsUser={setIsUser} setToken={setToken} />
               : <Signup setIsUser={setIsUser} setToken={setToken} />
           : null } */}
-
    </>
   );
 }

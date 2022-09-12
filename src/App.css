@@ -38,11 +38,3 @@ height: 40vmin;
     transform: rotate(360deg);
   }
 }
-
-.footer{
-  position: absolute;
-  width: 30px;
-  bottom: 0;
-  width: 100%;
-  align-items: center;
-} 
