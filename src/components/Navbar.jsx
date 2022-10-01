@@ -4,7 +4,7 @@ import "./styles/navbar.css";
 
 export default function Navbar() {
   return (
-    <Nav variant="tabs" defaultActiveKey="/" className='App'>
+    <Nav defaultActiveKey="/" className='App'>
       <Nav.Item>
         <Nav.Link href="/">Quizzard
         </Nav.Link>

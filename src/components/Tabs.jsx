@@ -15,7 +15,7 @@ export default function LeftTabs() {
     <Tab.Container id="left-tabs-example" defaultActiveKey="first">
       <Row>
         <Col sm={3}>
-          <Nav variant="pills" className="card">
+          <Nav className="card">
             <Nav.Item>
               <Nav.Link eventKey="first">Create Flashcards</Nav.Link>
             </Nav.Item>

@@ -10,7 +10,7 @@ export default function Home() {
         <>
         <Navbar />
         <div>
-            <h2>QIZZARD</h2>
+            <h2>QUIZZARD</h2>
             <p>The magic of learning</p>
         </div>
         <Footer/>
